@@ -4,7 +4,7 @@ const date2 = new Date(1993, 0, 12);
 console.log(date);
 console.log(date2);
 
-class MyDate {
+export class MyDate {
   /* when working with classes, TS would always wants us to initialize any variable we declare,
   so either we initialize it directly or use it inside a constructor. This is to avoid nullish
   values for those uninitialized variables */
