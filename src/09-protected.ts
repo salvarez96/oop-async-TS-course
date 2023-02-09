@@ -1,14 +1,20 @@
 export class Animal {
   constructor(
-    public name: string,
+    /* in order to use a private property or method in children class, we have to use the reserved
+    word 'protected' in the father class. If we only use 'private', errors will pop-up */
+    protected _name: string,
   ) {}
+
+  get name() {
+    return this._name;
+  }
 
   move() {
     console.log('Moving along!');
   }
 
   gretting() {
-    return `Hello, I'm ${this.name}`
+    console.log(`Hello, I'm ${this._name}`);
   }
 }
 
@@ -25,6 +31,8 @@ export class Dog extends Animal {
   }
 
   override gretting(): string {
+    /* if we apply polimorfism to a method, we can call the original one using super */
+    super.gretting();
     return `Hello, I'm ${this.name} and I'm a doggy`
   }
 
@@ -35,15 +43,8 @@ export class Dog extends Animal {
   }
 }
 
-const fifi = new Animal('fifi');
-
-fifi.move(); // Moving along!
-console.log(fifi.gretting()); // Hello, I'm fifi
-
 const chase = new Dog('chase', 'nico');
 
 chase.move(); // Moving along!
-console.log(chase.gretting()); // Hello, I'm chase and I'm a doggy
-chase.woof(5); // woof X5
+console.log(chase.gretting()); // Hello, I'm chase \n Hello, I'm chase and I'm a doggy
 console.log(chase.name); // chase
-console.log(chase.owner); // nico
