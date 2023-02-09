@@ -5,7 +5,7 @@ export class MyDate {
   a variable with a different name as the parameter that initializes it */
   constructor(
     /* we have to take into account that, by naming and initializing variables this way, we need
-    to explicitly assing them an access, otherwise TS won't recognize and auto-assign them */
+    to explicitly assign them an access, otherwise TS won't recognize and auto-assign them */
     private year: number,
     private month: number,
     private day: number
