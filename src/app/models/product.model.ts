@@ -1,6 +1,7 @@
 import { Category } from "./category.model";
 
-export interface Product extends Global {
+export interface Product {
+  id:          number;
   title:       string;
   price:       number;
   description: string;
