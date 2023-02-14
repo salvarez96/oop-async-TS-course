@@ -6,7 +6,11 @@ import { Product } from "../models/product.model";
 // export const products: Product[] = [];
 
 export class ProductMemoryService {
-  private products: Product[] = [];
+  private _products: Product[] = [];
+
+  get products() {
+    return this._products;
+  }
 
   createProduct(data: CreateProductDTO): Product {
     const newData: Product = {
@@ -22,22 +26,22 @@ export class ProductMemoryService {
   }
 
   add(product: Product) {
-    this.products.push(product);
+    this._products.push(product);
     return product;
   }
 
   updateProduct(id: Product['id'], changes: UpdateProductDTO) {
-    const productToChangeIndex = this.products.findIndex(product => product.id === id);
-    const productToChange = this.products[productToChangeIndex];
-    this.products[productToChangeIndex] = {
+    const productToChangeIndex = this._products.findIndex(product => product.id === id);
+    const productToChange = this._products[productToChangeIndex];
+    this._products[productToChangeIndex] = {
       ...productToChange,
       ...changes,
     };
-    return this.products[productToChangeIndex];
+    return this._products[productToChangeIndex];
   }
 
   findProduct(id: Product['id']) {
-    return this.products.find(item => item.id === id);
+    return this._products.find(item => item.id === id);
   }
 }
 
