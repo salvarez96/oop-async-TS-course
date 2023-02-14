@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run-ts": "node --loader ts-node/esm"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.3.3"
+  }
 }
